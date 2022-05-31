@@ -9,7 +9,7 @@ $$> npx create-react-app my-app
 # Snippets
 https://github.com/dsznajder/vscode-react-javascript-snippets/blob/HEAD/docs/Snippets.md
 # React Router
-https://v5.reactrouter.com/web/guides/quick-start
+https://reactrouter.com/docs/en/v6/getting-started/overview
 # Componentes con estilos
 https://styled-components.com/docs/basics#installation
 
