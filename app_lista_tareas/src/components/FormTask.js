@@ -26,6 +26,7 @@ const FormTask = ({ tareas, cambiarTareas }) => {
         completada: false,
       },
     ]);
+    cambiarInputTarea(""); // Limpiar formulario
   };
 
   return (
