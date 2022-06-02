@@ -12,4 +12,8 @@ https://github.com/dsznajder/vscode-react-javascript-snippets/blob/HEAD/docs/Sni
 https://reactrouter.com/docs/en/v6/getting-started/overview
 # Componentes con estilos
 https://styled-components.com/docs/basics#installation
+# Redux
+https://redux.js.org/introduction/getting-started
+https://react-redux.js.org/introduction/getting-started
+
 
