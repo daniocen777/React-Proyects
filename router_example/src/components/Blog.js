@@ -1,5 +1,16 @@
 const Blog = () => {
-    return <div>Blog</div>;
+    return (
+      <div>
+        <h1>Blog</h1>
+        <p>
+          Excepteur nulla mollit nisi ex. Reprehenderit exercitation in fugiat
+          enim Lorem id aliqua elit. Exercitation id id pariatur pariatur ad
+          pariatur nisi laborum exercitation velit. Velit esse quis Lorem commodo
+          velit mollit pariatur nostrud quis eu consectetur.
+        </p>
+      </div>
+    );
   };
   
   export default Blog;
+  
