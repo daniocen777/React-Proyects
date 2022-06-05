@@ -5,7 +5,8 @@ import ReactDOM from "react-dom/client";
 /* import FormWithCustomHooks from "./components/02-useEffect/FormWithCustomHook"; */
 /* import MultipleCustomHooks from "./components/03-examples/MultipleCustomHooks"; */
 /* import FocusScreen from "./components/04-useRef/FocusScreen"; */
-import RealExampleRef from "./components/04-useRef/RealExampleRef";
+/* import RealExampleRef from "./components/04-useRef/RealExampleRef"; */
+import Memorize from "./components/05-memos/Memorize";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -14,6 +15,7 @@ root.render(
     {/* <FormWithCustomHooks /> */}
     {/* <MultipleCustomHooks /> */}
     {/* <FocusScreen /> */}
-    <RealExampleRef />
+    {/* <RealExampleRef /> */}
+    <Memorize />
   </React.StrictMode>
 );
