@@ -6,7 +6,8 @@ import ReactDOM from "react-dom/client";
 /* import MultipleCustomHooks from "./components/03-examples/MultipleCustomHooks"; */
 /* import FocusScreen from "./components/04-useRef/FocusScreen"; */
 /* import RealExampleRef from "./components/04-useRef/RealExampleRef"; */
-import Memorize from "./components/05-memos/Memorize";
+/* import Memorize from "./components/05-memos/Memorize"; */
+import CallbackHook from "./components/05-memos/CallbackHook";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -16,6 +17,7 @@ root.render(
     {/* <MultipleCustomHooks /> */}
     {/* <FocusScreen /> */}
     {/* <RealExampleRef /> */}
-    <Memorize />
+    {/* <Memorize /> */}
+    <CallbackHook />
   </React.StrictMode>
 );
