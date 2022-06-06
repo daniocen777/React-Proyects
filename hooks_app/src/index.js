@@ -7,7 +7,8 @@ import ReactDOM from "react-dom/client";
 /* import FocusScreen from "./components/04-useRef/FocusScreen"; */
 /* import RealExampleRef from "./components/04-useRef/RealExampleRef"; */
 /* import Memorize from "./components/05-memos/Memorize"; */
-import CallbackHook from "./components/05-memos/CallbackHook";
+/* import CallbackHook from "./components/05-memos/CallbackHook"; */
+import TodoApp from "./components/06-useReducer/TodoApp";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -18,6 +19,7 @@ root.render(
     {/* <FocusScreen /> */}
     {/* <RealExampleRef /> */}
     {/* <Memorize /> */}
-    <CallbackHook />
+    {/* <CallbackHook /> */}
+    <TodoApp />
   </React.StrictMode>
 );
