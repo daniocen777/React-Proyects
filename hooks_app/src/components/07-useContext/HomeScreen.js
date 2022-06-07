@@ -1,0 +1,16 @@
+import { useContext } from "react";
+import { UserContext } from "./UserContext";
+
+const HomeScreen = () => {
+  // Acceder al usuario establecido en MainApp (UserContext)
+  const { user } = useContext(UserContext);
+  return (
+    <div>
+      <h1>HomeScreen</h1>
+      <hr />
+      <pre className="container">{JSON.stringify(user, null, 3)}</pre>
+    </div>
+  );
+};
+
+export default HomeScreen;
