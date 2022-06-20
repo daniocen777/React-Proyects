@@ -1,11 +1,22 @@
+import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../../auth/authContext";
+import { types } from "../../types/types";
 
 export const Navbar = () => {
+  // Leer el estado que viene de HeroesApp
+  const { user, dispatch } = useContext(AuthContext);
   // Custom hook para la navegación
   const navigate = useNavigate();
 
   const handleLogout = () => {
+    // Disparar acción para cerrar sesión
+    const action = {
+      type: types.logout,
+    };
+    dispatch(action);
+    
     navigate("/login", {
       replace: true,
     });
@@ -34,7 +45,7 @@ export const Navbar = () => {
 
       <div className="navbar-collapse collapse w-100 order-3 dual-collapse2 d-flrx justify-content-end">
         <ul className="navbar-nav ml-auto">
-          <span className="nav-item nav-link text-info">Y. Daniel</span>
+          <span className="nav-item nav-link text-info"> {user.name} </span>
           <button className="nav-item nav-link btn" onClick={handleLogout}>
             Logout
           </button>
