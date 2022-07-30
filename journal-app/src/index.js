@@ -7,6 +7,8 @@ import "./styles/styles.scss";
 // ==> npm i firebase
 // Middleware para als tareas síncronas (pero con toolkit ya no es necesario)
 // ==> npm i redux-thunk
+// Para las validaciones
+// ==> npm i validator
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

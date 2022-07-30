@@ -1,18 +1,20 @@
 import { Link } from "react-router-dom";
 import { useForm } from "../../hooks/useForm";
 
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
-  startLogiEmailPassword,
+  startLoginEmailPassword,
   startGoogleLogin,
 } from "../../actions/authAction";
 
 const LoginScreen = () => {
   // Hook para dispar acciones para redux
   const dispatch = useDispatch();
+  // hook para loading
+  const { loading, msgError } = useSelector((state) => state.ui);
   // Hook para formularios
   const [values, handleInputChange] = useForm({
-    email: "danicode@mail.com",
+    email: "test1@mail.com",
     password: "123456",
   });
 
@@ -21,8 +23,8 @@ const LoginScreen = () => {
   const handleLogin = (event) => {
     event.preventDefault();
     // dispatch(loginAction(12345, "Dani"));
-    // Llamar a la función aspincorna
-    dispatch(startLogiEmailPassword(email, password));
+    // Llamar a la función
+    dispatch(startLoginEmailPassword(email, password));
   };
 
   // Login con google
@@ -34,13 +36,14 @@ const LoginScreen = () => {
     <>
       <h3 className="auth__title">Login</h3>
       <form onSubmit={handleLogin}>
+        {msgError && <div className="auth__alert-error">{msgError}</div>}
         <input
           type="text"
           className="auth__input"
           placeholder="Correo"
           name="email"
           autoComplete="off"
-          values={email}
+          value={email}
           onChange={handleInputChange}
         />
         <input
@@ -48,10 +51,14 @@ const LoginScreen = () => {
           className="auth__input"
           placeholder="*********"
           name="password"
-          values={password}
+          value={password}
           onChange={handleInputChange}
         />
-        <button type="submit" className="btn btn-primary btn-block">
+        <button
+          type="submit"
+          className="btn btn-primary btn-block"
+          disabled={loading}
+        >
           Login
         </button>
         <div className="auth__social-networks">
