@@ -1,24 +1,47 @@
+import { useEffect } from "react";
 import { Card, Form, Input, Typography, Button } from "antd";
 import FileBase64 from "react-file-base64";
-import { useDispatch } from "react-redux";
-import { saveStory } from "../../actions/story";
+import { useDispatch, useSelector } from "react-redux";
+import { saveStory, updateStory } from "../../actions/story";
 
 import styles from "./styles";
 
 const { Title } = Typography;
 
-const StoryForm = () => {
+const StoryForm = ({ selectedId, setSelectedId }) => {
+  const story = useSelector((state) =>
+    selectedId ? state.stories.find((story) => story._id === selectedId) : null
+  );
   const dispatch = useDispatch();
   const [form] = Form.useForm();
+
   const onSubmit = (formValues) => {
-    dispatch(saveStory(formValues));
+    selectedId
+      ? dispatch(updateStory(selectedId, formValues))
+      : dispatch(saveStory(formValues));
+
+    reset();
   };
+
+  /* cambiar el estado cuando se modifique "story" o el formulario */
+  useEffect(() => {
+    if (story) {
+      form.setFieldsValue(story);
+    }
+  }, [story, form]);
+
+  /* Limpiar inputs */
+  const reset = () => {
+    form.resetFields();
+    setSelectedId(null);
+  };
+
   return (
     <Card
       style={styles.formCard}
       title={
         <Title level={4} style={styles.formTitle}>
-          story
+          {selectedId ? "Editing" : "Share"} a story
         </Title>
       }
     >
@@ -30,7 +53,11 @@ const StoryForm = () => {
         size="middle"
         onFinish={onSubmit}
       >
-         <Form.Item name="username" label="Username" rules={[{ required: true }]}>
+        <Form.Item
+          name="username"
+          label="Username"
+          rules={[{ required: true }]}
+        >
           <Input allowClear />
         </Form.Item>
         <Form.Item name="caption" label="Caption" rules={[{ required: true }]}>
@@ -50,6 +77,7 @@ const StoryForm = () => {
             }}
           />
         </Form.Item>
+        {/* submit */}
         <Form.Item
           wrapperCol={{
             span: 16,
@@ -60,6 +88,25 @@ const StoryForm = () => {
             Share
           </Button>
         </Form.Item>
+        {/* Limpiar (aparace solo si se quiere editar) */}
+        {!selectedId ? null : (
+          <Form.Item
+            wrapperCol={{
+              span: 16,
+              offset: 6,
+            }}
+          >
+            <Button
+              type="primary"
+              block
+              htmlType="button"
+              danger
+              onClick={reset}
+            >
+              Discard
+            </Button>
+          </Form.Item>
+        )}
       </Form>
     </Card>
   );

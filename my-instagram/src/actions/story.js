@@ -30,3 +30,33 @@ export const saveStory = (story) => {
     }
   };
 };
+
+export const updateStory = (id, story) => {
+  return async (dispatch) => {
+    try {
+      const { data } = await api.updateStory(id, story);
+      const action = {
+        type: types.storyUpdate,
+        payload: data,
+      };
+      dispatch(action);
+    } catch (error) {
+      console.error("ERROR: updateStory()", error.message);
+    }
+  };
+};
+
+export const deleteStory = (id) => {
+  return async (dispatch) => {
+    try {
+      await api.deleteStory(id);
+      const action = {
+        type: types.storyDelete,
+        payload: id,
+      };
+      dispatch(action);
+    } catch (error) {
+      console.error("ERROR: deleteStory()", error.message);
+    }
+  };
+};
